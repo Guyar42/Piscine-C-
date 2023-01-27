@@ -1,0 +1,28 @@
+NAME = NoSed
+
+SRCS = ./sources/main.cpp
+
+
+OBJS = ${SRCS:.cpp=.o}
+
+CC = c++
+
+CFLAGS = -Wall -Wextra -Werror -std=c++98
+
+lol = rm -f
+
+%.o: %.cpp Makefile
+		${CC} ${CFLAGS} -c $< -o $@
+
+all: ${NAME}
+
+${NAME}: ${OBJS}
+		${CC} $(FLAGS) -o $@ $^
+
+clean:
+		${lol} ${OBJS}
+
+fclean: clean
+		${lol} ${NAME}
+
+re:		fclean all
