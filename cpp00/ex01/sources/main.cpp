@@ -12,9 +12,10 @@
 
 #include "../includes/PhoneBook.hpp"
 #include "../includes/Contact.hpp"
+#define max 8
 
 int main(void)
-{
+{  
     PhoneBook repertory;
     std::string str;
     std::string typedindex;
@@ -33,10 +34,12 @@ int main(void)
 			repertory.setContactInfoEmpty(i);
             repertory.setInfoContacts(i);
             i++;
+            std::cout << "Enter fonction" << std::endl;
 		}
         else if (str == "SEARCH")
         {
-            while (repertory.getContactsIndex(j) != 0 && j < 8)
+            repertory.display();
+            while (repertory.getContactsIndex(j) != 0 && j < max)
             {
                 repertory.getContactsName(j);
                 j++;
@@ -47,7 +50,7 @@ int main(void)
             if (repertory.ValideTypedIndex() == 0)
             {
 				repertory.setTypedIndexInt();
-				if (repertory.checkValideTypedIndex() > 0 && repertory.checkValideTypedIndex() < 9)
+				if (repertory.checkValideTypedIndex() > 0 && repertory.checkValideTypedIndex() < max + 1)
 				{
 					j = repertory.checkValideTypedIndex();
 					repertory.getAllInfoContact(j - 1);
@@ -62,10 +65,10 @@ int main(void)
 			break;
         else if (str != "")
 			std::cout << "Wrong fonction, avaible fonction : ADD, SEARCH, EXIT" << std::endl;
-		else
-			std::cout << "Enter fonction" << std::endl;
+		// else
+		// 	std::cout << "Enter fonction" << std::endl;
 		str = "";
-		if (i == 8)
+		if (i == max)
 			i = 0;
 		j = 0;
 	}

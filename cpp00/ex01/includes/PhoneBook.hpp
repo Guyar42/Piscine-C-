@@ -33,7 +33,9 @@ class PhoneBook {
 	void setTypedIndexInt();
 	void setValideTypedIndexEmpty();
 	void setContactInfoEmpty(int i);
+	void display();
 	std::string getTypedIndex() const;
+
 	
 	
 	private:

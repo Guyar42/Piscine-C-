@@ -15,39 +15,40 @@
 
 Contact::Contact(void): index(0) 
 {
-	std::cout << "Constructor called" << std::endl;
+	// std::cout << "Constructor called" << std::endl;
 	return;
 }
 
 Contact::~Contact(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 	return; 
 }
 
 void Contact::setInfo(int i) 
 {
-	while(this->FirstName != "")
+	while(this->FirstName == "")
 	{
 		std::cout << "First Name: ";
 		std::getline (std::cin, this->FirstName);
+		// std::cin >> this->FirstName;
 	}
-	while(this->LasteName!= "")
+	while(this->LasteName == "")
 	{
 		std::cout << "Laste Name: ";
 		std::getline (std::cin, this->LasteName);
 	}
-	while(this->Nickname != "")
+	while(this->Nickname == "")
 	{
 		std::cout << "Nickname: ";
 		std::getline (std::cin, this->Nickname);
 	}
-	while(this->PhoneNumber != "")
+	while(this->PhoneNumber == "")
 	{
 		std::cout << "Phone number: ";
 		std::getline (std::cin, this->PhoneNumber);
 	}
-	while(this->DarkestSecret != "")
+	while(this->DarkestSecret == "")
 	{
 		std::cout << "Darkest secret: ";
 		std::getline (std::cin, this->DarkestSecret);
@@ -107,12 +108,11 @@ void Contact::getName(void) const
 
 void Contact::getInfo() const
 {
-		std::cout << this->index << std::endl
-				<< this->FirstName << std::endl
-				<< this->LasteName << std::endl
-				<< this->Nickname << std::endl
-				<< this->PhoneNumber << std::endl
-				<< this->DarkestSecret << std::endl;
+	std::cout << "Firstname: " << this->FirstName << std::endl
+		<< "Lastname: " << this->LasteName << std::endl
+		<< "Nickname: " << this->Nickname << std::endl
+		<< "Phone number: " << this->PhoneNumber << std::endl
+		<< "Darkest secret: " << this->DarkestSecret << std::endl;
 }
 
 void Contact::setInfoEmpty (int i)

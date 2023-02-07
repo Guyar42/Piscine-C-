@@ -14,12 +14,12 @@
 #include <iostream>
 
 PhoneBook::PhoneBook(void) : typeIndexInt(0) { 
-	std::cout << "Constructor called" << std::endl;
+	// std::cout << "Constructor called" << std::endl;
 	return;	
 }
 
 PhoneBook::~PhoneBook(void) {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 	return;
 }
 
@@ -90,4 +90,14 @@ void PhoneBook::setValideTypedIndexEmpty() {
 
 void PhoneBook::setContactInfoEmpty(int i) {
 	this->contacts[i].setInfoEmpty(i);
+}
+void PhoneBook::display()
+{
+	std::cout << "0|";
+	std::cout << std::setfill (' ') << std::setw (10)
+			<< "Firstname" << "|";
+	std::cout << std::setfill (' ') << std::setw (10)
+			<< "Lastname" << "|";
+	std::cout << std::setfill (' ') << std::setw (10)
+			<< "Nickname" << "|" << std::endl;
 }
