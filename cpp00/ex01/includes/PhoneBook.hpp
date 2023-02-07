@@ -13,19 +13,27 @@
 #ifndef PHONEBOOK_H
 # define PHONEBOOK_H
 
+#define max 8
+
 
 #include "Contact.hpp"
 
 class PhoneBook {
-	public:
+public:
 	
 	PhoneBook( void );
 	~PhoneBook( void );
 	
+	int add(int i, std::string str);
+	int search(int j, std::string str);
+
+private:
+
 	int getContactsIndex(int i) const;
 	int getTypedIndexInt() const;
 	int checkValideTypedIndex() const;
 	int ValideTypedIndex() const;
+	int typeIndexInt;
 	void setInfoContacts(int i);
 	void getAllInfoContact(int i) const;
 	void getContactsName(int i) const;
@@ -34,15 +42,9 @@ class PhoneBook {
 	void setValideTypedIndexEmpty();
 	void setContactInfoEmpty(int i);
 	void display();
-	std::string getTypedIndex() const;
-
-	
-	
-	private:
-	
 	Contact contacts[8];
 	std::string typedIndex;
-	int typeIndexInt;
+	std::string getTypedIndex() const;
 };
 
 #endif

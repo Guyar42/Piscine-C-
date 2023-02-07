@@ -42,6 +42,7 @@ std::string PhoneBook::getTypedIndex() const {
 }
 
 void PhoneBook::setTypedIndex() {
+	std::cout << "\n";
 	std::cout << "index: ";
 	std::getline(std::cin, this->typedIndex);
 }
@@ -50,7 +51,7 @@ void PhoneBook::setTypedIndexInt() {
 	this->typeIndexInt = std::stoi(this->getTypedIndex());
 }
 
-int PhoneBook::getTypedIndexInt() const{
+int PhoneBook::getTypedIndexInt() const {
 	return (this->typeIndexInt);
 }
 
@@ -91,8 +92,9 @@ void PhoneBook::setValideTypedIndexEmpty() {
 void PhoneBook::setContactInfoEmpty(int i) {
 	this->contacts[i].setInfoEmpty(i);
 }
-void PhoneBook::display()
-{
+
+void PhoneBook::display() {
+	std::cout << "\n";
 	std::cout << "0|";
 	std::cout << std::setfill (' ') << std::setw (10)
 			<< "Firstname" << "|";
@@ -100,4 +102,44 @@ void PhoneBook::display()
 			<< "Lastname" << "|";
 	std::cout << std::setfill (' ') << std::setw (10)
 			<< "Nickname" << "|" << std::endl;
+}
+
+int PhoneBook::add(int i, std::string str) {
+	if (str == "ADD")
+    {
+		this->setContactInfoEmpty(i);
+        this->setInfoContacts(i);
+        i++;
+        std::cout << "Enter fonction" << std::endl;
+	}
+	return (i);
+}
+
+int PhoneBook::search(int j, std::string str) {
+	if (str == "SEARCH")
+    {
+        this->display();
+        while (this->getContactsIndex(j) != 0 && j < max)
+        {
+            this->getContactsName(j);
+            j++;
+        }
+        j = 0;
+		std::cout << "\nEnter contact's index" << std::endl;
+		this->setTypedIndex();
+        if (this->ValideTypedIndex() == 0)
+        {
+			this->setTypedIndexInt();
+			if (this->checkValideTypedIndex() > 0 && this->checkValideTypedIndex() < max + 1)
+			{
+				j = this->checkValideTypedIndex();
+				this->getAllInfoContact(j - 1);
+			}
+			else
+				std::cout << "Wrong index\n";
+			std::cout << "Enter fonction" << std::endl;
+        }
+		this->setValideTypedIndexEmpty(); 
+    }
+	return (j);
 }

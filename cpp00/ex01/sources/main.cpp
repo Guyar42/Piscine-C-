@@ -12,7 +12,6 @@
 
 #include "../includes/PhoneBook.hpp"
 #include "../includes/Contact.hpp"
-#define max 8
 
 int main(void)
 {  
@@ -24,49 +23,16 @@ int main(void)
 
     i = 0;
     j = 0;
-
     std::cout << "Welcome to the awesome Phonebook" << std::endl;
     std::cout << "Avaible fonction : ADD, SEARCH, EXIT" << std::endl;
 	while (std::getline (std::cin, str) && !std::cin.eof())
     {
-        if (str == "ADD")
-        {
-			repertory.setContactInfoEmpty(i);
-            repertory.setInfoContacts(i);
-            i++;
-            std::cout << "Enter fonction" << std::endl;
-		}
-        else if (str == "SEARCH")
-        {
-            repertory.display();
-            while (repertory.getContactsIndex(j) != 0 && j < max)
-            {
-                repertory.getContactsName(j);
-                j++;
-            }
-            j = 0;
-            std::cout << "Enter contact's index" << "\n";
-			repertory.setTypedIndex();
-            if (repertory.ValideTypedIndex() == 0)
-            {
-				repertory.setTypedIndexInt();
-				if (repertory.checkValideTypedIndex() > 0 && repertory.checkValideTypedIndex() < max + 1)
-				{
-					j = repertory.checkValideTypedIndex();
-					repertory.getAllInfoContact(j - 1);
-				}
-				else
-					std::cout << "Wrong index\n";
-				std::cout << "Enter fonction" << std::endl;
-            }
-			repertory.setValideTypedIndexEmpty(); 
-        }
-        else if (str == "EXIT")
+        i = repertory.add(i, str);
+        j = repertory.search(j, str);
+        if (str == "EXIT")
 			break;
-        else if (str != "")
-			std::cout << "Wrong fonction, avaible fonction : ADD, SEARCH, EXIT" << std::endl;
-		// else
-		// 	std::cout << "Enter fonction" << std::endl;
+        if (str != "")
+			std::cout << "Avaible fonction : ADD, SEARCH, EXIT" << std::endl;
 		str = "";
 		if (i == max)
 			i = 0;

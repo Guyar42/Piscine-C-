@@ -31,7 +31,6 @@ void Contact::setInfo(int i)
 	{
 		std::cout << "First Name: ";
 		std::getline (std::cin, this->FirstName);
-		// std::cin >> this->FirstName;
 	}
 	while(this->LasteName == "")
 	{
@@ -103,7 +102,7 @@ void Contact::getName(void) const
 		std::cout << std::setfill (' ') << std::setw (10)
 				<< this->Nickname;
 	}
-	std::cout << "|" << std::endl;
+	std::cout << "|" <<std::endl;
 }
 
 void Contact::getInfo() const
@@ -112,7 +111,7 @@ void Contact::getInfo() const
 		<< "Lastname: " << this->LasteName << std::endl
 		<< "Nickname: " << this->Nickname << std::endl
 		<< "Phone number: " << this->PhoneNumber << std::endl
-		<< "Darkest secret: " << this->DarkestSecret << std::endl;
+		<< "Darkest secret: " << this->DarkestSecret << "\n" << std::endl;
 }
 
 void Contact::setInfoEmpty (int i)
