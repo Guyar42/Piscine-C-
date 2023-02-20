@@ -4,7 +4,7 @@ SRCS =	./sources/main.cpp \
 		./sources/fixed.cpp
 
 
-HEADER =  ./includes/fixed.hpp
+HEADER = 	./includes/fixed.hpp
 
 OBJS = ${SRCS:.cpp=.o}
 

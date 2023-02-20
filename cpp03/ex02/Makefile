@@ -1,10 +1,12 @@
-NAME = UsefullClass
+NAME = ClapTrap
 
-SRCS =	./sources/main.cpp \
-		./sources/fixed.cpp
+SRCS = 	./sources/main.cpp 			\
+		./sources/ClapTrap.cpp 	\
+		./sources/FragTrap.cpp
 
 
-HEADER =  ./includes/fixed.hpp
+HEADER = 	./includes/ClapTrap.h \
+			./includes/FragTrap.h
 
 OBJS = ${SRCS:.cpp=.o}
 
