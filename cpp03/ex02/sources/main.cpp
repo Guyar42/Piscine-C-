@@ -2,6 +2,7 @@
 #include "../includes/FragTrap.h"
 
 
+
 int main ()
 {
     FragTrap A("A");
@@ -11,4 +12,5 @@ int main ()
     B.attack("A");
 
     A.hightFiveGuys();
+
 }
