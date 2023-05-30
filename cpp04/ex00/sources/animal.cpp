@@ -2,7 +2,7 @@
 #include "../includes/animal.hpp"
 
 
-Animal::Animal(): _name("Animal") {
+Animal::Animal(): _type("Animal") {
     std::cout << "Constructor default animal called" << std::endl;
 }
 
@@ -17,7 +17,7 @@ Animal::Animal(Animal const & src) {
 }
 
 Animal & Animal::operator=(Animal const & rhs) {
-    (void) rhs;
+   this->_type = rhs._type;
     return *this;
 }
 
@@ -26,5 +26,5 @@ std::cout << "hey, i am ann animal and i make some sound" << std::endl;
 }
 
 std::string Animal::getType() const {
-    return this->_name;
+    return this->_type;
 }

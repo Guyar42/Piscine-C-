@@ -20,7 +20,7 @@ FragTrap::~FragTrap(void) {
     return;
 }
 
-FragTrap::FragTrap(FragTrap const & src) {
+FragTrap::FragTrap(FragTrap const & src) : ClapTrap() {
     *this = src;
     return;
 }

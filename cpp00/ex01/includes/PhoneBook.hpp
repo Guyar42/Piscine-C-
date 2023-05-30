@@ -13,7 +13,7 @@
 #ifndef PHONEBOOK_H
 # define PHONEBOOK_H
 
-#define max 8
+#define max 3
 
 
 #include "Contact.hpp"

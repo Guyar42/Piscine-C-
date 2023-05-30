@@ -5,16 +5,19 @@ class Dog : public Animal {
 public:
 
     Dog();
-    virtual ~Dog();
+    ~Dog();
     Dog(Dog const & src);
 
     Dog & operator=(Dog const & rhs);
     virtual void makeSound() const;
-    void creatBrain();
+    Brain *getBrain() const;
+    void setIdeas(int i, std::string str);
+    std::string getIdeas(int i);
+
     
 private:
 
-Brain *brain;
+    Brain *_brain;
 
 protected:
 

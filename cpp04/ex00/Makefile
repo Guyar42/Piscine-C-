@@ -11,13 +11,13 @@ HEADER = 	./includes/animal.hpp \
 			./includes/dog.hpp \
 			./includes/cat.hpp \
 			./includes/wrongAnimal.hpp \
-			./inncludes/wrongCat.hpp \
+			./includes/wrongCat.hpp
 
 OBJS = ${SRCS:.cpp=.o}
 
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -std=c++98
 
 RM = rm -f
 

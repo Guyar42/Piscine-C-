@@ -14,6 +14,7 @@ public:
     Form(std::string name, int toSign, int toExec);
     ~Form();
     Form(Form const & src);
+    Form & operator=(Form const & rhs);
 
     std::string getName() const;
     bool getSigned() const;

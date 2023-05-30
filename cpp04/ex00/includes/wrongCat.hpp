@@ -8,7 +8,7 @@ public:
     wrongCat(wrongCat const & src);
 
     wrongCat & operator=(wrongCat const & rhs);
-    virtual void makeSound() const;
+   void makeSound() const;
 private:
 
 protected:

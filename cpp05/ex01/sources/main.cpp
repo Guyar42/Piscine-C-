@@ -7,12 +7,11 @@ int main () {
     try 
     {
         Form A("test", 149, 20);
-        Bureaucrat chef("big chef", 1 );
+        Bureaucrat chef("big chef", 1);
         chef.signForm(A);
-
         A.beSigned(chef);
     }
-    catch (std::exception const& e)
+    catch (std::exception const & e)
     {
         std::cout << e.what() << std::endl;
     }

@@ -44,7 +44,7 @@ void Contact::setInfo(int i)
 	}
 	while(this->PhoneNumber == "")
 	{
-		std::cout << "Phone number: ";
+		std::cout << "Phon number: ";
 		std::getline (std::cin, this->PhoneNumber);
 	}
 	while(this->DarkestSecret == "")

@@ -1,7 +1,7 @@
 #include "../includes/form.hpp"
 #include "../includes/PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(): Form() {
+PresidentialPardonForm::PresidentialPardonForm(): Form("PresidentialPardonForm", 25, 5) {
     std::cout << "Constructor default PresidentialPardonForm called" << std::endl;
 }
 
@@ -14,10 +14,24 @@ PresidentialPardonForm::~PresidentialPardonForm() {
     std::cout << "Destructor default PresidentialPardonForm called" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & src) {
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & src) : Form("PresidentialPardonForm", 25, 5) {
     std::cout << "Copy Constructor PresidentialPardonForm called" << std::endl;
-    *this = src;
+    this->_signed = 0;
+    this->_name = src.getName();
+    this->_toSign = src.getToSign();
+    this->_toExec = src.getToExec();
     return;
+}
+
+PresidentialPardonForm & PresidentialPardonForm::operator=(Form const & rhs)
+{
+    if (this == &rhs)
+        return *this;
+    this->_signed = 0;
+    this->_name = rhs.getName();
+    this->_toSign = rhs.getToSign();
+    this->_toExec = rhs.getToExec();
+    return *this;
 }
 
 void PresidentialPardonForm::execute(Bureaucrat & executor) const {

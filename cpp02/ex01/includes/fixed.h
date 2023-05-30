@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 14:08:20 by guyar             #+#    #+#             */
-/*   Updated: 2023/01/28 15:39:49 by guyar            ###   ########.fr       */
+/*   Updated: 2023/04/06 17:41:20 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,3 +37,5 @@ private:
 	int const static _bits = 8;
 	
 };
+
+std::ostream &operator<<(std::ostream &out, Fixed const &f);

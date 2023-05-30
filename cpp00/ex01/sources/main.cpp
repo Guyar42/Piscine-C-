@@ -12,6 +12,7 @@
 
 #include "../includes/PhoneBook.hpp"
 #include "../includes/Contact.hpp"
+#define max 3
 
 int main(void)
 {  

@@ -5,12 +5,12 @@
 
 int main() {
 
-int a;
-a = 0;
+// int a;
+// a = 0;
 
 // const Animal* meta[100];
 
-Animal *meta = new Animal();
+// Animal *meta = new Animal();
 
 // while (a <= 49)
 // {
@@ -34,6 +34,8 @@ Animal *meta = new Animal();
 //     a++;
 // }
 
+// Animal A();
+
 std::cout << "---------------------" << std::endl;
 // std::cout << k->getType() << " " << std::endl;
 // std::cout << l->getType() << " " << std::endl;
@@ -41,7 +43,10 @@ std::cout << "---------------------" << std::endl;
 // k->makeSound();
 // l->makeSound();
 
-
+Dog basic;
+{
+    Dog tmp = basic;
+}
 return 0;
 
 }

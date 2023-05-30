@@ -7,6 +7,7 @@ int main ()
 
     A.attack("B");
     B.attack("A");
+    A.getInfo();
 
     A.beRepaired(2);
     A.beRepaired(2);

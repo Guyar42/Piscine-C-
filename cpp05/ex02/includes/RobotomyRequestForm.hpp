@@ -9,6 +9,7 @@ public:
     RobotomyRequestForm(std::string target);
     ~RobotomyRequestForm();
     RobotomyRequestForm(RobotomyRequestForm const & src);
+    RobotomyRequestForm & operator=(Form const & rhs);
     void execute(Bureaucrat & executor) const;
 
 private:

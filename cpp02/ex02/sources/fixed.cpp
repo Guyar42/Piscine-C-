@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 14:08:13 by guyar             #+#    #+#             */
-/*   Updated: 2023/01/28 15:45:48 by guyar            ###   ########.fr       */
+/*   Updated: 2023/04/07 15:46:50 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,11 @@ int Fixed::toInt(void) const {
 }
 
 Fixed Fixed::operator+(Fixed const & rhs) const {
-	return Fixed(this->_rawBits + rhs.getRawBits());
+	return Fixed(this->toFloat() + rhs.toFloat());
 }
 
 Fixed Fixed::operator-(Fixed const & rhs) const {
-	return Fixed(this->_rawBits - rhs.getRawBits());
+	return Fixed(this->toFloat()- rhs.toFloat());
 }
 
 Fixed Fixed::operator*(Fixed const & rhs) const {
@@ -129,7 +129,7 @@ bool Fixed::operator!=(Fixed const & rhs) const {
 }
 
 Fixed& Fixed::operator++(void) {
-	this->_rawBits++; // a way to do this with accessor ?
+	this->_rawBits++;
 	return *this;
 }
 

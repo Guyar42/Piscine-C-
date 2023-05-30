@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 10:15:59 by guyar             #+#    #+#             */
-/*   Updated: 2023/01/23 13:30:01 by guyar            ###   ########.fr       */
+/*   Updated: 2023/03/31 15:26:20 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,6 @@ void Harl::complain(std::string level)
 		if (str[i] != level)
 			i++;
 	}
-	
-
 	switch(i)
 	{
 		case 0: ft = &Harl::debug; break;
@@ -63,8 +61,8 @@ void Harl::complain(std::string level)
 		case 2: ft = &Harl::warning; break;
 		case 3: ft = &Harl::error;	break;
 	}
-if (i < 4)
-	(this->*ft)();
+	if (i < 4)
+		(this->*ft)();
 else
 	std::cout << "wrong message error" << std::endl;
 }

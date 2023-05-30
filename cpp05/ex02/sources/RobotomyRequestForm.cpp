@@ -3,7 +3,7 @@
 #include "../includes/RobotomyRequestForm.hpp"
 
 
-RobotomyRequestForm::RobotomyRequestForm(): Form() {
+RobotomyRequestForm::RobotomyRequestForm(): Form("RobotomyRequestForm", 72,45) {
     std::cout << "Constructor default RobotomyRequestForm called" << std::endl;
 }
 
@@ -15,10 +15,24 @@ RobotomyRequestForm::~RobotomyRequestForm() {
     std::cout << "Destructor default RobotomyRequestForm called" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & src) {
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & src) : Form("RobotomyRequestForm", 72,45) {
     std::cout << "Copy Constructor RobotomyRequestForm called" << std::endl;
-    *this = src;
+    this->_signed = 0;
+    this->_name = src.getName();
+    this->_toSign = src.getToSign();
+    this->_toExec = src.getToExec();
     return;
+}
+
+RobotomyRequestForm & RobotomyRequestForm::operator=(Form const & rhs)
+{
+    if (this == &rhs)
+        return *this;
+    this->_signed = 0;
+    this->_name = rhs.getName();
+    this->_toSign = rhs.getToSign();
+    this->_toExec = rhs.getToExec();
+    return *this;
 }
 
 void RobotomyRequestForm::execute(Bureaucrat & executor) const {

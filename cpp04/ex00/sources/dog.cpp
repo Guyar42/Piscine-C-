@@ -4,21 +4,21 @@
 
 Dog::Dog(): Animal() {
     std::cout << "Constructor default Dog called" << std::endl;
-    this->_name = "Dog"; 
+    this->_type = "Dog";
 }
 
 Dog::~Dog() {
     std::cout << "Destructor default Dog called" << std::endl;
 }
 
-Dog::Dog(Dog const & src) {
+Dog::Dog(Dog const & src): Animal(src) {
     std::cout << "Copy Constructor Dog called" << std::endl;
     *this = src;
     return;
 }
 
 Dog & Dog::operator=(Dog const & rhs) {
-   (void) rhs;
+   this->_type = rhs._type;
     return *this;
 }
 

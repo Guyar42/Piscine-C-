@@ -11,6 +11,8 @@ public:
     Cat & operator=(Cat const & rhs);
     virtual void makeSound() const;
     void creatBrain();
+    void setIdeas(int i, std::string str);
+    std::string getIdeas(int i);
 
 private:
 

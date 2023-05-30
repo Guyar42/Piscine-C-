@@ -4,7 +4,7 @@
 
 wrongCat::wrongCat(): wrongAnimal() {
     std::cout << "Constructor default wrongCat called" << std::endl;
-    this->_name = "wrongCat"; 
+    this->_type = "wrongCat"; 
 }
 
 wrongCat::~wrongCat() {
@@ -23,5 +23,5 @@ wrongCat & wrongCat::operator=(wrongCat const & rhs) {
 }
 
 void wrongCat::makeSound(void) const {
-    std::cout << "miaouw miaouw" << std::endl;
+    std::cout << "wrong car sound : miaouw miaouw" << std::endl;
 }

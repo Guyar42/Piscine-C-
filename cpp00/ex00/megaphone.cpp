@@ -27,7 +27,7 @@ int main(int ac, char **argv)
 	j = 0;
 	while (argv[i])
 	{
-		while(argv[i][j])
+		while (argv[i][j])
 		{
 			char ch = toupper(argv[i][j]); 
 			std::cout << ch;

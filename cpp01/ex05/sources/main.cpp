@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 10:11:49 by guyar             #+#    #+#             */
-/*   Updated: 2023/01/23 13:28:44 by guyar            ###   ########.fr       */
+/*   Updated: 2023/04/06 16:32:41 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 int main(){
 
 Harl harl;
-harl.complain("lol");
+harl.complain("debug");
 return (0);
-
 }

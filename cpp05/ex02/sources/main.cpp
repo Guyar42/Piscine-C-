@@ -8,10 +8,17 @@
 int main () {
     try 
     {
-        PresidentialPardonForm A("test");
+        ShrubberyCreationForm A("text.txt");
         Bureaucrat chef("big chef", 1);
         chef.signForm(A);
         chef.executeForm(A);
+        chef.executeForm(A);
+
+        chef.executeForm(A);
+
+        chef.executeForm(A);
+
+
     }
     catch (std::exception const& e)
     {

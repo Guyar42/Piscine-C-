@@ -12,6 +12,10 @@
 
 #include "../includes/PhoneBook.hpp"
 #include <iostream>
+#include <string>
+#include <cstdlib>
+
+#define max 8
 
 PhoneBook::PhoneBook(void) : typeIndexInt(0) { 
 	// std::cout << "Constructor called" << std::endl;
@@ -47,8 +51,10 @@ void PhoneBook::setTypedIndex() {
 	std::getline(std::cin, this->typedIndex);
 }
 
+
 void PhoneBook::setTypedIndexInt() {
-	this->typeIndexInt = std::stoi(this->getTypedIndex());
+	std::string str = this->getTypedIndex();
+	this->typeIndexInt = atoi(str.c_str());
 }
 
 int PhoneBook::getTypedIndexInt() const {

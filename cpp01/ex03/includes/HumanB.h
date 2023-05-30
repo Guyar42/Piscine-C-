@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:20:51 by guyar             #+#    #+#             */
-/*   Updated: 2023/01/16 15:14:57 by guyar            ###   ########.fr       */
+/*   Updated: 2023/03/30 13:52:30 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ class HumanB {
 	private:
 
 	std::string _name;
-	Weapon *_weapon;
+	Weapon * _weapon;
 
 };

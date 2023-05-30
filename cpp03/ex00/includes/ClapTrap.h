@@ -28,6 +28,7 @@ private:
 
 };
 
+// forme canonique;
 //masquage;
 //protected;
 //attribution de pointeur;

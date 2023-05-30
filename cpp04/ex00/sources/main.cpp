@@ -5,34 +5,35 @@
 #include "../includes/wrongCat.hpp"
 
 
-int main() {
-const Animal* meta = new Animal(); 
-const Animal* j = new Dog();
-const Animal* i = new Cat();
+int main()
+{
+    const Animal* meta = new Animal();
+    const Animal* j = new Dog();
+    const Animal* i = new Cat();
 
-// const wrongAnimal* k= new wrongAnimal();
-// const wrongAnimal* l= new wrongCat();
+    const wrongAnimal* k= new wrongAnimal();
+    const wrongAnimal* l= new wrongCat();
 
-std::cout << j->getType() << " " << std::endl;
-std::cout << i->getType() << " " << std::endl;
-i->makeSound(); //will output the cat sound! j->makeSound();
-meta->makeSound();
-j->makeSound();
-i->makeSound();
-std::cout << "---------------------" << std::endl;
-// std::cout << k->getType() << " " << std::endl;
-// std::cout << l->getType() << " " << std::endl;
+    std::cout << j->getType() << " " << std::endl;
+    std::cout << i->getType() << " " << std::endl;
+    i->makeSound(); //will output the cat sound! j->makeSound();
+    meta->makeSound();
+    j->makeSound();
+    i->makeSound();
+    std::cout << "---------------------" << std::endl;
+    std::cout << k->getType() << " " << std::endl;
+    k->makeSound();
+    l->makeSound();
+    std::cout << l->getType() << " " << std::endl;
 
-// k->makeSound();
-// l->makeSound();
+                        // k->makeSound();
+    // l->makeSound();
 
-
-// faire le truc basic
-delete meta;
-delete j;
-delete i;
-
-return 0;
-
+    delete meta;
+    delete j;
+    delete i;
+    delete k;
+    delete l;
+    return 0;
 
 }

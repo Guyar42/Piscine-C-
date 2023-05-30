@@ -2,10 +2,10 @@
 #include "../includes/bureaucrat.hpp"
 #include "../includes/error.hpp"
 
-Form::Form(): _signed(0),
-            _name("name"),
-            _toSign("1"),
-            _toExec("1") {
+Form::Form(): _name("name"),
+             _signed(0),
+             _toSign(1),
+             _toExec(1) {
     std::cout << "Constructor default Form called" << std::endl;
 }
 
@@ -30,9 +30,22 @@ Form::~Form() {
 
 Form::Form(Form const & src) {
     std::cout << "Copy Constructor Form called" << std::endl;
-    *this = src;
+    this->_signed = 0;
+    this->_name = src.getName();
+    this->_toSign = src.getToSign();
+    this->_toExec = src.getToExec();
     return;
-} //
+}
+
+Form & Form::operator=(Form const & rhs) {
+    if (this == &rhs)
+        return *this;
+    this->_name = rhs._name;
+    this->_signed = rhs._signed;
+    this->_toSign = rhs._toSign;
+    this->_toExec = rhs._toExec;
+    return *this;
+} 
 
 
 std::string Form::getName() const {

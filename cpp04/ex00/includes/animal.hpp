@@ -16,6 +16,6 @@ public:
 private:
 
 protected:
-    std::string _name;
+    std::string _type;
 
 };

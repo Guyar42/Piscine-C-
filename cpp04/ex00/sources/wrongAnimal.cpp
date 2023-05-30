@@ -1,7 +1,7 @@
 #include "../includes/wrongAnimal.hpp"
 
 
-wrongAnimal::wrongAnimal(): _name("wrongAnimal") {
+wrongAnimal::wrongAnimal(): _type("wrongAnimal") {
     std::cout << "Constructor default wrongAnimal called" << std::endl;
 }
 
@@ -16,14 +16,14 @@ wrongAnimal::wrongAnimal(wrongAnimal const & src) {
 }
 
 wrongAnimal & wrongAnimal::operator=(wrongAnimal const & rhs) {
-    (void) rhs;
+    this->_type = rhs._type;
     return *this;
 }
 
 void wrongAnimal::makeSound() const {
-std::cout << "hey, i am ann wrongAnimal and i make some sound" << std::endl;
+std::cout << "hey, i am a wrongAnimal and i make some sound" << std::endl;
 }
 
 std::string wrongAnimal::getType() const {
-    return this->_name;
+    return this->_type;
 }
