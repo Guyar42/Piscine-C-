@@ -1,5 +1,4 @@
 #include "../includes/bureaucrat.hpp"
-#include "../includes/error.hpp"
 #include "../includes/form.hpp"
 
 

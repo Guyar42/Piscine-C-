@@ -1,6 +1,5 @@
 #include "../includes/form.hpp"
 #include "../includes/ShrubberyCreationForm.hpp"
-#include "../includes/error.hpp"
 #include <iostream>
 #include <fstream>
 
@@ -20,11 +19,9 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & src) : Form("ShrubberyCreationForm", 145, 137)
 {
+    (void) src;
     std::cout << "Copy Constructor ShrubberyCreationForm called" << std::endl;
     this->_signed = 0;
-    this->_name = src.getName();
-    this->_toSign = src.getToSign();
-    this->_toExec = src.getToExec();
     return;
 }
 
@@ -33,24 +30,21 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(Form const & rhs)
     if (this == &rhs)
         return *this;
     this->_signed = 0;
-    this->_name = rhs.getName();
-    this->_toSign = rhs.getToSign();
-    this->_toExec = rhs.getToExec();
     return *this;
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat & executor) const {
-    std::ofstream newfile; 
+    std::ofstream newfile;
     newfile.open(this->_target.c_str(), std::ios::out);
     if (!newfile)
     {
-        throw Error("File can not be open");
+        throw ErrFile();
     }
     else if (this->getSigned() == 0)
-        throw Error("the formular is not signed");
+        throw Form::FormNotSigned();
     else if (executor.getGrade() > this->getToExec())
     {
-        throw Error("Bureaucrat's grad is too low");
+        throw Bureaucrat::GradeTooLowException();
     }
     else
     {
@@ -70,4 +64,7 @@ void ShrubberyCreationForm::execute(Bureaucrat & executor) const {
         std::cout << executor.getName() << " executed " << this->getName() << std::endl;
     }
     return;
+}
+const char * ShrubberyCreationForm::ErrFile::what() const throw(){
+    return "file can not be open";
 }

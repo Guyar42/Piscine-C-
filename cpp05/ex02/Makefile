@@ -2,7 +2,6 @@ NAME = Bureaucrate
 
 SRCS = 	./sources/main.cpp 	\
 		./sources/bureaucrat.cpp \
-		./sources/error.cpp \
 		./sources/form.cpp \
 		./sources/ShrubberyCreationForm.cpp \
 		./sources/RobotomyRequestForm.cpp \
@@ -10,8 +9,7 @@ SRCS = 	./sources/main.cpp 	\
 
 		
 
-HEADER = 	./includes/error.hpp \
-			./includes/bureaucrat.hpp \
+HEADER = ./includes/bureaucrat.hpp \
 			./includes/form.hpp \
 			./includes/ShrubberyCreationForm.hpp \
 			./includes/RobotomyRequestForm.hpp \

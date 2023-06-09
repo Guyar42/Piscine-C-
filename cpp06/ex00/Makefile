@@ -1,9 +1,9 @@
 NAME = Convert
 
 SRCS = 	./sources/main.cpp 	\
-		./sources/Convert.cpp
+		./sources/ScalarConverter.cpp
 
-HEADER = ./includes/Convert.hpp
+HEADER = ./includes/ScalarConverter.hpp
 
 
 OBJS = ${SRCS:.cpp=.o}

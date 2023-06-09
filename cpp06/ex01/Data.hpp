@@ -1,19 +1,21 @@
+#pragma once
 #include <iostream>
 #include <string>
+#include <stdint.h>
 
 class Data {
     public:
-    Data();
-    ~Data();
+        Data();
+        ~Data();
 
-    int geti();
-    int getj();
-    void seti(int i);
+        Data(const Data& other);
+        Data& operator=(const Data& other);
+        
+        static int geti();
+        static int getj();
+        static void seti(int i);
 
     private:
-    int _i;
-    int _j;
+        static int _i;
+        static int _j;
 };
-
-uintptr_t serialize(Data* ptr);
-Data * deserialize(uintptr_t ptr);

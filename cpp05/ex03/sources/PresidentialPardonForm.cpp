@@ -1,9 +1,7 @@
 #include "../includes/form.hpp"
 #include "../includes/PresidentialPardonForm.hpp"
 
-
-
-PresidentialPardonForm::PresidentialPardonForm(): Form() {
+PresidentialPardonForm::PresidentialPardonForm(): Form("PresidentialPardonForm", 25, 5) {
     std::cout << "Constructor default PresidentialPardonForm called" << std::endl;
 }
 
@@ -16,21 +14,25 @@ PresidentialPardonForm::~PresidentialPardonForm() {
     std::cout << "Destructor default PresidentialPardonForm called" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & src) {
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & src) : Form("PresidentialPardonForm", 25, 5) {
     std::cout << "Copy Constructor PresidentialPardonForm called" << std::endl;
-    *this = src;
+    (void) src;
+    this->_signed = 0;
     return;
+}
+
+PresidentialPardonForm & PresidentialPardonForm::operator=(Form const & rhs)
+{
+    if (this == &rhs)
+        return *this;
+    this->_signed = 0;
+    return *this;
 }
 
 void PresidentialPardonForm::execute(Bureaucrat & executor) const {
     if (this->getSigned() == 0)
-            throw Error("the formular is not signed");
+            throw Form::FormNotSigned();
     else if (executor.getGrade() > this->getToExec())
-        throw Error("Bureaucrat's grad is too low");
+        throw Bureaucrat::GradeTooLowException();
     std::cout << this->_target << " has been forgiven by Zaphod Beeblebrox " << std::endl;
 }
-
-Form * PresidentialPardonForm::newPresidentialPardonForm() const {
-    return (new PresidentialPardonForm());
-}
-

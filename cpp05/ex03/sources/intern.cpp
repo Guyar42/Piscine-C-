@@ -1,5 +1,4 @@
 #include "../includes/intern.hpp"
-#include "../includes/error.hpp"
 #include "../includes/form.hpp"
 #include "../includes/ShrubberyCreationForm.hpp"
 #include "../includes/RobotomyRequestForm.hpp"
@@ -27,7 +26,7 @@ Intern & Intern::operator=(Intern const & rhs) {
 } //
 
 Form * Intern::_findForm(const std::string name, const std::string target) const {
-    std::string tab[3] = {"Shrubbery creation", "Robotomy Request", "Presidential Pardon"};
+    std::string tab[3] = {"ShrubberyCreation", "RobotomyRequest", "PresidentialPardon"};
     int i;
 
     Form *form = NULL;
@@ -55,21 +54,25 @@ Form * Intern::_findForm(const std::string name, const std::string target) const
     }
     if (form == NULL)
     {
-        throw ("Invalide form name");
+        return NULL;
     }
     else
         return form;
 }
 
 Form * Intern::makeForm(const std::string name, const std::string target) const {
-    try
+    if (this->_findForm(name, target) == NULL)
+    {
+        throw InvalideFormNameException();
+    }
+    else
     {
         std::cout << "Intern creates " << name << std::endl;
         return this->_findForm(name, target);
     }
-    catch (std::exception const &e)
-    {
-        std::cout << e.what() << std::endl;
-        return NULL;
-    }
+}
+
+const char * Intern::InvalideFormNameException::what() const throw()
+{
+    return "invalide form name";
 }

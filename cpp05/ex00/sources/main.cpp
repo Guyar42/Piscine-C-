@@ -1,13 +1,14 @@
 #include "../includes/bureaucrat.hpp"
-#include "../includes/error.hpp"
 
 
 int main () {
     try 
     {
-        Bureaucrat A("A", 145);
+        Bureaucrat A("A", 152);
         A.downGrade();
         std::cout << A;
+        Bureaucrat B(A);
+        std::cout << B;
         // std::cout << A.getGrade() << std::endl;
         // A.downGrade();
         // std::cout << A.getGrade() << std::endl;
@@ -22,7 +23,7 @@ int main () {
         //                A.downGrade();
         // std::cout << A.getGrade() << std::endl;
     }
-    catch (std::exception const& e)
+    catch (std::exception const & e)
     {
         std::cout << e.what() << std::endl;
     }

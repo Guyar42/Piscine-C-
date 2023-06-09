@@ -1,6 +1,5 @@
 #include "../includes/form.hpp"
 #include "../includes/bureaucrat.hpp"
-#include "../includes/error.hpp"
 
 Form::Form(): _name("name"),
              _signed(0),
@@ -9,18 +8,15 @@ Form::Form(): _name("name"),
     std::cout << "Constructor default Form called" << std::endl;
 }
 
-Form::Form(std::string name, int toSign, int toExec) {
+Form::Form(std::string name, int toSign, int toExec) :  _name(name),
+                                                        _signed(0),
+                                                        _toSign(toSign),
+                                                        _toExec(toExec)
+{
     if (toSign < 1 || toExec < 1)
-        throw Error("Form::GradeTooHighException");
+        throw Bureaucrat::GradeTooHighException();
     else if (toSign > 150 || toExec > 150)
-        throw Error("Form::GradeTooLowException");
-    else
-    {
-        this->_signed = 0;
-        this->_name = name;
-        this->_toSign = toSign;
-        this->_toExec = toExec;
-    }
+        throw Bureaucrat::GradeTooLowException();
     std::cout << "Constructor Form called" << std::endl;
 }
 
@@ -28,22 +24,18 @@ Form::~Form() {
     std::cout << "Destructor default Form called" << std::endl;
 }
 
-Form::Form(Form const & src) {
+Form::Form(Form const & src) : _name(src._name),
+                                _signed(src._signed),
+                                _toSign(src._toSign),
+                                _toExec(src._toExec)
+{
     std::cout << "Copy Constructor Form called" << std::endl;
-    this->_signed = 0;
-    this->_name = src.getName();
-    this->_toSign = src.getToSign();
-    this->_toExec = src.getToExec();
     return;
 }
 
-Form & Form::operator=(Form const & rhs) {
-    if (this == &rhs)
-        return *this;
-    this->_name = rhs._name;
-    this->_signed = rhs._signed;
-    this->_toSign = rhs._toSign;
-    this->_toExec = rhs._toExec;
+Form & Form::operator=(Form const & rhs) 
+{   
+    (void)rhs;
     return *this;
 } 
 
@@ -65,7 +57,7 @@ int Form::getToExec() const {
 
 void Form::beSigned(Bureaucrat & b) {
     if (b.getGrade() > this->getToSign())
-        throw Error("Form::GradeTooLowException");
+        throw Bureaucrat::GradeTooLowException();
     else
     {
         this->_signed = 1;

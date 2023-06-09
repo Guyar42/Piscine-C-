@@ -1,11 +1,10 @@
 #include "../includes/form.hpp"
 #include "../includes/ShrubberyCreationForm.hpp"
-#include "../includes/error.hpp"
 #include <iostream>
 #include <fstream>
 
 
-ShrubberyCreationForm::ShrubberyCreationForm(): Form() {
+ShrubberyCreationForm::ShrubberyCreationForm(): Form("ShrubberyCreationForm", 145, 137) {
     std::cout << "Constructor default ShrubberyCreationForm called" << std::endl;
 }
 
@@ -18,25 +17,34 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
     std::cout << "Destructor default ShrubberyCreationForm called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & src)
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & src) : Form("ShrubberyCreationForm", 145, 137)
 {
+    (void) src;
     std::cout << "Copy Constructor ShrubberyCreationForm called" << std::endl;
-    *this = src;
+    this->_signed = 0;
     return;
 }
 
+ShrubberyCreationForm & ShrubberyCreationForm::operator=(Form const & rhs)
+{
+    if (this == &rhs)
+        return *this;
+    this->_signed = 0;
+    return *this;
+}
+
 void ShrubberyCreationForm::execute(Bureaucrat & executor) const {
-    std::ofstream newfile; 
-    newfile.open(this->_target, std::ios::out);
+    std::ofstream newfile;
+    newfile.open(this->_target.c_str(), std::ios::out);
     if (!newfile)
     {
-        throw Error("File can not be open");
+        throw ErrFile();
     }
     else if (this->getSigned() == 0)
-        throw Error("the formular is not signed");
+        throw Form::FormNotSigned();
     else if (executor.getGrade() > this->getToExec())
     {
-        throw Error("Bureaucrat's grad is too low");
+        throw Bureaucrat::GradeTooLowException();
     }
     else
     {
@@ -57,7 +65,6 @@ void ShrubberyCreationForm::execute(Bureaucrat & executor) const {
     }
     return;
 }
-
-Form * ShrubberyCreationForm::newShrubberyCreationForm(const std::string target) const {
-    return new ShrubberyCreationForm(target);
+const char * ShrubberyCreationForm::ErrFile::what() const throw(){
+    return "file can not be open";
 }

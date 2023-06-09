@@ -2,13 +2,13 @@
 #include <string>
 
 class C: public Base {
+
     public:
+        C();
+        ~C();
 
-    C();
-    ~C();
-
-    std::string getType();
+        std::string getType();
 
     private:
-    std::string _type;
+        std::string _type;
 };

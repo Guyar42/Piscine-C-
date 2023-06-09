@@ -7,9 +7,8 @@
 class Form;
 
 class Bureaucrat {
-public:
 
-    Bureaucrat();
+public:
     Bureaucrat(std::string name, int i);
     Bureaucrat(Bureaucrat const & src);
     virtual ~Bureaucrat();
@@ -21,10 +20,19 @@ public:
     int getGrade() const;
     void upGrade();
     void downGrade();
+
+    class GradeTooHighException: public std::exception {
+        virtual const char * what() const throw();
+    };
+    class GradeTooLowException: public std::exception {
+        virtual const char * what() const throw();
+    };
+
 private:
+    Bureaucrat();
 
 protected:
-    std::string _name;
+    std::string const _name;
     int _grade;
 };
 

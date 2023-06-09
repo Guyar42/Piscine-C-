@@ -23,10 +23,10 @@ public:
     void beSigned(Bureaucrat & b);
 
 private:
-    std::string _name;
+    std::string const _name;
     bool _signed;
-    int _toSign;
-    int _toExec;
+    int const _toSign;
+    int const _toExec;
 
 };
 

@@ -2,13 +2,11 @@ NAME = Bureaucrate
 
 SRCS = 	./sources/main.cpp 	\
 		./sources/bureaucrat.cpp \
-		./sources/error.cpp \
 		./sources/form.cpp
 
 		
 
-HEADER = 	./includes/error.hpp \
-			./includes/bureaucrat.hpp \
+HEADER = ./includes/bureaucrat.hpp \
 			./includes/form.hpp
 
 

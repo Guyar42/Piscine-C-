@@ -23,13 +23,17 @@ public:
     void signeForm();
     virtual void execute(Bureaucrat & executor) const = 0;
 
+    class FormNotSigned: public std::exception {
+        virtual const char * what() const throw();
+    };
+
 private:
 
 protected:
-    std::string _name;
+    std::string const _name;
     bool _signed;
-    int _toSign;
-    int _toExec;
+    int const _toSign;
+    int const _toExec;
     std::string _target;
 };
 

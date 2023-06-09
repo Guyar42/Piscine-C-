@@ -1,14 +1,11 @@
 NAME = Bureaucrate
 
 SRCS = 	./sources/main.cpp 	\
-		./sources/bureaucrat.cpp \
-		./sources/error.cpp
+		./sources/bureaucrat.cpp
 
 		
 
-HEADER = 	./includes/error.hpp \
-			./includes/bureaucrat.hpp \
-			./includes/error.hpp
+HEADER =  ./includes/bureaucrat.hpp
 
 
 OBJS = ${SRCS:.cpp=.o}

@@ -13,7 +13,7 @@ public:
     Form();
     Form(std::string name, int toSign, int toExec);
     Form(Form const & src);
-    Form(const std::string target);
+    Form & operator=(Form const & rhs);
     virtual ~Form();
     std::string getName() const;
     bool getSigned() const;
@@ -23,13 +23,17 @@ public:
     void signeForm();
     virtual void execute(Bureaucrat & executor) const = 0;
 
+    class FormNotSigned: public std::exception {
+        virtual const char * what() const throw();
+    };
+
 private:
-    std::string _name;
-    bool _signed;
-    int _toSign;
-    int _toExec;
 
 protected:
+    std::string const _name;
+    bool _signed;
+    int const _toSign;
+    int const _toExec;
     std::string _target;
 };
 

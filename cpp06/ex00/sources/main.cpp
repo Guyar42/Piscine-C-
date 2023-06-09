@@ -1,4 +1,4 @@
-#include "../includes/Convert.hpp"
+#include "../includes/ScalarConverter.hpp"
 
 
 
@@ -12,20 +12,13 @@ int main (int ac, char **av) {
     }
     std::string str;
     str = av[1];
-    Convert A(str);
-    if (A.checkInf())
+    ScalarConverter A(str);
+    if (A.checkInf() == 1)
         return (0);
-    A.isNan();
-    if (A.getCode() == nan)
-    {
-        A.putNb();
-        return(0);
-    }
+    if (A.isNan() == 1)
+        return (0);
     A.checkDot();
     A.initNb(av);
     A.putNb();
     return (0);
 }
-
-// gerer .0
-// 

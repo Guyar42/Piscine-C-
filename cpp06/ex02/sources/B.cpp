@@ -6,7 +6,7 @@
     }
 
     B::~B() {
-        std::cout << "constructor for B called" << std::endl;
+        std::cout << "Destructor for B called" << std::endl;
     }
 
     std::string B::getType() {

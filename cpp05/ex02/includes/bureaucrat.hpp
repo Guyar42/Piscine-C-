@@ -22,10 +22,17 @@ public:
     void upGrade();
     void downGrade();
     void executeForm(Form const & form);
+
+    class GradeTooHighException: public std::exception {
+        virtual const char * what() const throw();
+    };
+    class GradeTooLowException: public std::exception {
+        virtual const char * what() const throw();
+    };
 private:
 
 protected:
-    std::string _name;
+    std::string const _name;
     int _grade;
 };
 

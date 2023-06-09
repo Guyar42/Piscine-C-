@@ -14,10 +14,14 @@ public:
     virtual ~Intern();
     Intern & operator=(Intern const & rhs);
 
-    Form * makeForm(std::string name, std::string target) const ;
+    Form * makeForm(std::string name, std::string target) const;
+
+    class InvalideFormNameException: public std::exception {
+        virtual const char * what() const throw();
+    };
 
 private:
 
-Form * _findForm(const std::string name, const std::string target) const;
+    Form * _findForm(const std::string name, const std::string target) const;
 
 };

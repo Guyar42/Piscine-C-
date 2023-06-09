@@ -1,9 +1,11 @@
 NAME = Uintptr_t
 
 SRCS = 	main.cpp 	\
-		Data.cpp
+		Data.cpp	\
+		Serializer.cpp
 
-HEADER = Data.hpp
+HEADER = Data.hpp \
+		Serializer.hpp
 
 
 OBJS = ${SRCS:.cpp=.o}
