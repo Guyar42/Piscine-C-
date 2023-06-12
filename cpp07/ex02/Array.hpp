@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <exception>
 
 template< typename T >
 class Array {
@@ -11,18 +12,23 @@ class Array {
         Array<T> & operator=(const Array<T>& other);
         ~Array(void);
         T getData(unsigned i) const;
-        void setData(unsigned i);
+        void setData(unsigned i, int d);
+        size_t size() const;
+
+        class CantAccessToDataException: public std::exception {
+            virtual const char * what() const throw();
+        };
 
    private:
         T * _data;
-        T _int;
+        T _size;
 
 };
 
 template<typename T>
 Array<T>::Array() {
     std::cout << "Constructor for Array called " << std::endl;
-    // _data = new T[0];
+    _data = new T[0];
 }
 
 template<typename T>
@@ -32,48 +38,60 @@ Array<T>::~Array() {
 
 template<typename T>
 Array<T>::Array(T const & n) {
+    _size = n; 
     _data = new T[n];
     T i;
     i = 0; 
     while (i < n)
     {
         _data[i] = T();
-        std::cout << _data[i] << std::endl;
         i++;
     }
 }
 
 template<typename T>
-T Array<T>::getData(unsigned i) const{
-    return _data[i];
+T Array<T>::getData(unsigned i) const {
+    if (i < 0 || i >= static_cast<unsigned>(_size))
+        throw CantAccessToDataException();
+    else
+        return _data[i];
 }
 
 template<typename T>
 Array<T>::Array(Array<T> const & content) {
-    int len = sizeof(content._data);
-    _data = new T[len];
-    for (unsigned int i = 0; i < len; i++)
-        _data[i] = content._data[i];
+    this->_size = content._size;
+    _data = new T[this->_size];
+    
+    for (unsigned int i = 0; i < this->_size; i++)
+        _data[i] = this->_data[i];
     std::cout << "Copie Constructor for Array called " << std::endl;
 }
 
 template<typename T>
-void Array<T>::setData(unsigned i) {
-    _data[i] = 8;
+void Array<T>::setData(unsigned i, int d) {
+    _data[i] = d;
 }
 
 template<typename T>
 Array<T>& Array<T>::operator=(const Array<T>& other){
     if (this != &other) {
         delete[] _data;
-
-        int len  = sizeof(other._data);
-
+        unsigned int len  = sizeof(other._data);
         _data = new T[len];
-
         for (unsigned int i = 0; i < len; i++) {
             _data[i] = other._data[i];
         }
     }
     return *this;
+}
+
+template<typename T>
+const char * Array<T>::CantAccessToDataException::what() const throw()
+{
+    return "Cant access to data";
+}
+
+template<typename T>
+size_t Array<T>::size() const {
+    return _size; 
 }
