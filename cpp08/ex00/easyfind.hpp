@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 17:11:14 by guyar             #+#    #+#             */
-/*   Updated: 2023/06/15 16:49:47 by guyar            ###   ########.fr       */
+/*   Updated: 2023/06/19 16:39:59 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ typename T::const_iterator easyfind(const T& container, int need)
     while (it != end) {
         if (*it == need)
         {
-            std::cout << "*it == " << *it << std::endl;
             return it;
         }
         ++it;

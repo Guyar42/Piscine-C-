@@ -8,25 +8,21 @@ int main () {
     
     unsigned i;
     i = 0;
-    while (A.getData(i))
+
+    A.setData(1, 5);
+    while (i< A.size())
     {
-        std::cout << A.getData(i) << std::endl;
+        std::cout << "data A = " << A.getData(i) << std::endl;
         i++;
     }
+
     Array<unsigned int> C(A);
-    C.setData(0, 8);
     try {
-        C.getData(10);
+        std::cout << "data = " << C.getData(1) << std::endl;
     }
     catch (std::exception const & e)
     {
         std::cout << e.what() << std::endl;
     }
-    std::cout << "size == " << A.size() << std::endl; 
-    // std::cout<< "for A = " << A.getData(0) << std::endl;
-    // std::cout<< "for C = " << C.getData(0) << std::endl;
-
-    // C = A;
-    // std::cout<< "for A = " << A.getData(0) << std::endl;
-    // std::cout<< "for C = " << C.getData(0) << std::endl;
+    std::cout << "size = " << A.size() << std::endl;
 }

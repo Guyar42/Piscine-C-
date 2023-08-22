@@ -1,8 +1,8 @@
-NAME = TemplateClass
+NAME = easyfind
 
 SRCS = 	main.cpp
 
-HEADER = Array.hpp
+HEADER = MutantStack.hpp
 
 
 OBJS = ${SRCS:.cpp=.o}

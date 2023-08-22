@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/11 15:54:12 by guyar             #+#    #+#             */
+/*   Updated: 2023/07/11 16:28:48 by guyar            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #pragma once
 #include <iostream>
 #include <exception>
@@ -6,7 +18,6 @@ template< typename T >
 class Array {
    public:
 
-        Array(void);
         Array(T const & n);
         Array<T>(Array<T> const & content);
         Array<T> & operator=(const Array<T>& other);
@@ -20,6 +31,7 @@ class Array {
         };
 
    private:
+        Array(void);
         T * _data;
         T _size;
 
@@ -88,7 +100,7 @@ Array<T>& Array<T>::operator=(const Array<T>& other){
 template<typename T>
 const char * Array<T>::CantAccessToDataException::what() const throw()
 {
-    return "Cant access to data";
+    return "cannot access to data";
 }
 
 template<typename T>

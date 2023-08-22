@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 17:43:53 by guyar             #+#    #+#             */
-/*   Updated: 2023/06/16 18:49:42 by guyar            ###   ########.fr       */
+/*   Updated: 2023/06/19 16:19:21 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,21 @@ void Span::addMultiple(int * tab)
 {
     int i;
     i = 0;
+    int len;
 
-    while(tab[i])
+    len = sizeof(tab[0]);
+    while(tab[i] != '\0')
     {
         addNumber(tab[i]);
         i++;
+    }
+}
+
+void Span::addRandom(int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        int tmp = rand() % 10000;
+        addNumber(tmp);
     }
 }
