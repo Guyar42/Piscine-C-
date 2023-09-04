@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 19:05:38 by guyar             #+#    #+#             */
-/*   Updated: 2023/08/29 20:07:58 by guyar            ###   ########.fr       */
+/*   Updated: 2023/09/04 16:59:15 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Db {
         ~Db();
 
         void openDb();
-        void putInMap();
+        bool putInMap();
         std::map<std::string, std::string> & getDataBase();
     private:
     
