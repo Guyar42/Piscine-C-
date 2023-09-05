@@ -1,33 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   data.hpp                                           :+:      :+:    :+:   */
+/*   ft.cpp                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/29 19:05:38 by guyar             #+#    #+#             */
-/*   Updated: 2023/09/05 10:23:42 by guyar            ###   ########.fr       */
+/*   Created: 2023/09/05 14:15:17 by guyar             #+#    #+#             */
+/*   Updated: 2023/09/05 14:30:35 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "../includes/ft.hpp"
 
-#include <fstream>
-#include <map>
-#include <string>
-#include <iostream>
+int ft_count(std::string str, char c)
+{
+    int i = 0, j = 0;
 
-class Db {
-    public:
+    while(str[i])
+    {
+        if (str[i] == c)
+            j++;
+        i++;
+    }
+    return j;
+}
 
-        Db();
-        ~Db();
-
-        void openDb();
-        bool putInMap();
-        std::map<std::string, std::string> & getDataBase();
-    private:
+bool strIsDigit(std::string const & str)
+{
     
-        std::map<std::string, std::string> _mdb;  
-        std::fstream _dataBase;
-};
+    int i;
+    i = 0;
+
+    while (str[i])
+    {
+        if (!std::isdigit(str[i]))
+        {
+            return false;
+        }
+        i++;
+    }
+    return true;
+}

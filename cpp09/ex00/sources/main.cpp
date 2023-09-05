@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 19:06:13 by guyar             #+#    #+#             */
-/*   Updated: 2023/09/04 19:39:44 by guyar            ###   ########.fr       */
+/*   Updated: 2023/09/05 11:24:30 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include "../includes/data.hpp"
 #include "../includes/input.hpp"
 
+// make the canonic form;
 
 int main (int ac, char **av)
 {

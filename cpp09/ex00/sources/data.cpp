@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 19:12:24 by guyar             #+#    #+#             */
-/*   Updated: 2023/09/04 17:37:52 by guyar            ###   ########.fr       */
+/*   Updated: 2023/09/05 10:23:30 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ bool Db::putInMap()
         second = tmp.substr(tmp.find_first_of(',') + 1, tmp.size());
         if (first != "date" && second != "exchange_rate"
             && (!dateParse(first))
-            || (!valParse(second)))
+            || (!valParse(second, 0)))
         {
             std::cout << "Error in the Database" << std::endl;
             return(0);

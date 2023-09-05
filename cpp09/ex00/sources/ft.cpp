@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:55:55 by guyar             #+#    #+#             */
-/*   Updated: 2023/09/04 19:39:25 by guyar            ###   ########.fr       */
+/*   Updated: 2023/09/05 14:15:51 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,6 @@ bool strIsDigit(std::string const & str)
         i++;
     }
     return true;
-}
-
-int ft_count(std::string str, char c)
-{
-    int i = 0, j = 0;
-
-    while(str[i])
-    {
-        if (str[i] == c)
-            j++;
-        i++;
-    }
-    return j;
 }
 
 bool dateParse(std::string str) {
@@ -95,8 +82,9 @@ bool dateParse(std::string str) {
         return(1);
 }
 
-bool valParse(std::string insecond)
+bool valParse(std::string insecond, int code)
 {
+    //code 0 = database; code 1 = input;
     std::string befDot;
     std::string aftDot;
     int nb = ft_count(insecond, '.');
@@ -133,10 +121,13 @@ bool valParse(std::string insecond)
         std::cout << "Error: not a positive number = " << insecond << std::endl;
         return (0);
     }
-    else if (s > 100000)
+    if (code == 1)
     {
-        std::cout << "Error: to large a number = " << insecond << std::endl;
-        return (0);
+        if (s > 1000)
+        {
+            std::cout << "Error: to large a number = " << insecond << std::endl;
+            return (0);
+        }
     }
     return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 19:40:05 by guyar             #+#    #+#             */
-/*   Updated: 2023/09/04 19:36:17 by guyar            ###   ########.fr       */
+/*   Updated: 2023/09/05 10:28:23 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void Input::find(Db & db)
             insecond = infirst;
         if (dbtmp.upper_bound(infirst) != dbtmp.end()
            && dateParse(infirst)
-            && valParse(insecond))
+            && valParse(insecond, 1))
         {
             itdb = dbtmp.upper_bound(infirst);
             itdb--;
