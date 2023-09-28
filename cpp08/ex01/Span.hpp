@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 17:41:19 by guyar             #+#    #+#             */
-/*   Updated: 2023/06/19 16:16:56 by guyar            ###   ########.fr       */
+/*   Updated: 2023/09/06 17:42:20 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ class Span {
     public:
         ~Span();
         Span(int n);
+        Span(const Span &other);
+        Span &operator=(const Span &other);
         void addNumber(int n);
         int shortestSpan() const;
         int longestSpan() const;

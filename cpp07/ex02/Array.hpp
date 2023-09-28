@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 15:54:12 by guyar             #+#    #+#             */
-/*   Updated: 2023/07/11 16:28:48 by guyar            ###   ########.fr       */
+/*   Updated: 2023/09/07 16:17:26 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Array {
         Array(T const & n);
         Array<T>(Array<T> const & content);
         Array<T> & operator=(const Array<T>& other);
+        T   & operator[](const int idx) const;
         ~Array(void);
         T getData(unsigned i) const;
         void setData(unsigned i, int d);
@@ -75,7 +76,9 @@ Array<T>::Array(Array<T> const & content) {
     _data = new T[this->_size];
     
     for (unsigned int i = 0; i < this->_size; i++)
-        _data[i] = this->_data[i];
+    {
+        _data[i] = content.getData(i);
+    }
     std::cout << "Copie Constructor for Array called " << std::endl;
 }
 
@@ -106,4 +109,12 @@ const char * Array<T>::CantAccessToDataException::what() const throw()
 template<typename T>
 size_t Array<T>::size() const {
     return _size; 
+}
+
+template<typename T>
+T & Array<T>::operator[](const int idx) const {
+    if (idx < 0 || static_cast<size_t>(idx) >= _size) {
+        throw CantAccessToDataException();
+    }
+    return _data[idx];
 }

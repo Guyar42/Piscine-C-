@@ -1,4 +1,16 @@
-// #include <iostream>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/07 16:19:13 by guyar             #+#    #+#             */
+/*   Updated: 2023/09/07 16:19:15 by guyar            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #include "Array.hpp"
 
 
@@ -15,14 +27,38 @@ int main () {
         std::cout << "data A = " << A.getData(i) << std::endl;
         i++;
     }
+    i = 0;
 
-    Array<unsigned int> C(A);
+    Array<unsigned int> C = A;
     try {
-        std::cout << "data = " << C.getData(1) << std::endl;
+            while (i< C.size())
+        {
+            std::cout << "data c = " << C.getData(i) << std::endl;
+            i++;
+        }
     }
     catch (std::exception const & e)
     {
         std::cout << e.what() << std::endl;
     }
+
+    C.setData(1, 8);
+    i = 0;
+    while (i< A.size())
+    {
+        std::cout << "data A = " << A.getData(i) << std::endl;
+        i++;
+    }
+    i = 0;
+    while (i< C.size())
+    {
+        std::cout << "data c = " << C.getData(i) << std::endl;
+        i++;
+    }
+    
     std::cout << "size = " << A.size() << std::endl;
+    std::cout << "C[0] =  " << C[0] << std::endl;
+    std::cout << "C[1] =  " << C[1] << std::endl;
+
+
 }

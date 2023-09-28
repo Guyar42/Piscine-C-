@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 17:43:53 by guyar             #+#    #+#             */
-/*   Updated: 2023/06/19 16:19:21 by guyar            ###   ########.fr       */
+/*   Updated: 2023/09/06 17:46:50 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,22 @@ Span::~Span()
 Span::Span(int n): _n(n), _nb(0)
 {
     std::cout << "constructor called for Span" << std::endl;
+}
+
+
+Span &Span::operator=(const Span &other) {
+    if (this != &other) {
+        _n = other._n;
+        _nb = other._nb;
+        _data = other._data;
+    }
+    return *this;
+}
+Span::Span(const Span &other) : _data(other._data),
+                                _n(other._n),
+                                _nb(other._nb)
+{
+    std::cout << "Copie constructor called for Span" << std::endl;
 }
 
 void Span::addNumber(int n)
