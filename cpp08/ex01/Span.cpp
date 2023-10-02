@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 17:43:53 by guyar             #+#    #+#             */
-/*   Updated: 2023/09/06 17:46:50 by guyar            ###   ########.fr       */
+/*   Updated: 2023/10/02 19:49:16 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Span::~Span()
     std::cout << "Default destructor called for Span" << std::endl;
 }
 
-Span::Span(int n): _n(n), _nb(0)
+Span::Span(unsigned int N): _n(N), _nb(0)
 {
     std::cout << "constructor called for Span" << std::endl;
 }
@@ -100,22 +100,9 @@ int Span::shortestSpan() const
     return gap;
 }
 
-void Span::addMultiple(int * tab)
-{
-    int i;
-    i = 0;
-    int len;
-
-    len = sizeof(tab[0]);
-    while(tab[i] != '\0')
-    {
-        addNumber(tab[i]);
-        i++;
-    }
-}
-
 void Span::addRandom(int n)
 {
+    std::srand((unsigned) time(NULL));
     for (int i = 0; i < n; i++)
     {
         int tmp = rand() % 10000;

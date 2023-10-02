@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 15:54:12 by guyar             #+#    #+#             */
-/*   Updated: 2023/09/07 16:17:26 by guyar            ###   ########.fr       */
+/*   Updated: 2023/09/28 20:28:02 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ template< typename T >
 class Array {
    public:
 
-        Array(T const & n);
+        Array(void);
+        Array(unsigned int n);
         Array<T>(Array<T> const & content);
         Array<T> & operator=(const Array<T>& other);
         T   & operator[](const int idx) const;
@@ -32,9 +33,8 @@ class Array {
         };
 
    private:
-        Array(void);
         T * _data;
-        T _size;
+        unsigned int _size;
 
 };
 
@@ -47,13 +47,14 @@ Array<T>::Array() {
 template<typename T>
 Array<T>::~Array() {
     std::cout << "Destructor for Array called " << std::endl;
+    delete[] _data;
 }
 
 template<typename T>
-Array<T>::Array(T const & n) {
+Array<T>::Array(unsigned int n) {
     _size = n; 
     _data = new T[n];
-    T i;
+    unsigned int i;
     i = 0; 
     while (i < n)
     {
@@ -90,11 +91,11 @@ void Array<T>::setData(unsigned i, int d) {
 template<typename T>
 Array<T>& Array<T>::operator=(const Array<T>& other){
     if (this != &other) {
-        delete[] _data;
+        // delete[] _data;
         unsigned int len  = sizeof(other._data);
         _data = new T[len];
         for (unsigned int i = 0; i < len; i++) {
-            _data[i] = other._data[i];
+            _data[i] = &other._data[i];
         }
     }
     return *this;

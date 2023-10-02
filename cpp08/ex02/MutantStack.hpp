@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 16:48:14 by guyar             #+#    #+#             */
-/*   Updated: 2023/09/06 17:54:44 by guyar            ###   ########.fr       */
+/*   Updated: 2023/10/02 19:41:19 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ class MutantStack: public std::stack<T> {
 template<typename T>
 MutantStack<T>::MutantStack()
 {
-    std::cout << "constructor called for MutantStack" << std::endl;
+    std::cout << "Destructor called for MutantStack" << std::endl;
 }
 template<typename T>
 MutantStack<T>::~MutantStack()
 {
-    std::cout << "constructor called for MutantStack" << std::endl;
+    std::cout << "Destructor called for MutantStack" << std::endl;
 }
 
 template<typename T>

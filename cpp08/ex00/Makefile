@@ -1,6 +1,7 @@
 NAME = easyfind
 
-SRCS = 	main.cpp
+SRCS = 	main.cpp \
+		exception.cpp
 
 HEADER = easyfind.hpp
 
