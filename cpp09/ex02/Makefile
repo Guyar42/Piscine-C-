@@ -1,11 +1,16 @@
-NAME = RPN
+NAME = PmergeMe
 
 SRCS = 	./sources/main.cpp \
 		./sources/ft.cpp \
-		./sources/stack.cpp
+		./sources/error.cpp \
+		./sources/myDeque.cpp \
+		./sources/myVector.cpp
 
 HEADER = ./includes/ft.hpp \
-		./includes/stack.hpp
+		./includes/error.hpp \
+		./includes/myDeque \
+		./includes/myVector
+
 
 OBJS = ${SRCS:.cpp=.o}
 

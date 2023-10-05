@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 14:16:09 by guyar             #+#    #+#             */
-/*   Updated: 2023/09/07 18:09:59 by guyar            ###   ########.fr       */
+/*   Updated: 2023/10/05 16:22:37 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,5 @@
 #include <string>
 
 int ft_count(std::string str, char c);
-bool strIsDigit(std::string const & str);
+void strIsDigit(std::string const & str);
+void strIsPositive(std::string const & str);

@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 19:06:13 by guyar             #+#    #+#             */
-/*   Updated: 2023/09/05 11:24:30 by guyar            ###   ########.fr       */
+/*   Updated: 2023/10/02 21:41:32 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int main (int ac, char **av)
     
     Input in;
     in.openInput(av);
-    // in.putInMap();
     in.find(db);
     return(0);
 }

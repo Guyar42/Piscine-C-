@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 19:40:05 by guyar             #+#    #+#             */
-/*   Updated: 2023/09/05 10:28:23 by guyar            ###   ########.fr       */
+/*   Updated: 2023/10/03 17:48:56 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ Input::~Input()
 
 void Input::openInput(char **av)
 {
-    _input.open(av[1]);
-    // To secure;
+        _input.open(av[1]);
 }
 
 
@@ -47,7 +46,8 @@ void Input::find(Db & db)
         if (tmp.find_first_of('|') != std::string::npos)
         {    
             insecond = tmp.substr(tmp.find_first_of('|') + 1, tmp.size());
-            if (insecond.find_first_not_of(' ') != std::string::npos)
+            if (insecond.find_first_not_of(' ') != std::string::npos 
+                && insecond[0] == ' ')
                 insecond = insecond.substr(insecond.find_first_not_of(' '), insecond.size());
             else
                 insecond = infirst;

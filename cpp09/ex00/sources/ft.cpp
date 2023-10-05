@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:55:55 by guyar             #+#    #+#             */
-/*   Updated: 2023/09/05 14:15:51 by guyar            ###   ########.fr       */
+/*   Updated: 2023/10/03 17:49:29 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,19 @@ bool strIsDigit(std::string const & str)
         i++;
     }
     return true;
+}
+
+int ft_count(std::string str, char c)
+{
+    int i = 0, j = 0;
+
+    while(str[i])
+    {
+        if (str[i] == c)
+            j++;
+        i++;
+    }
+    return j;
 }
 
 bool dateParse(std::string str) {
