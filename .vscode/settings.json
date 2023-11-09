@@ -76,6 +76,7 @@
         "ranges": "cpp",
         "list": "cpp",
         "set": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "queue": "cpp"
     }
 }

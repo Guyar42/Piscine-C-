@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 19:38:40 by guyar             #+#    #+#             */
-/*   Updated: 2023/09/05 10:28:27 by guyar            ###   ########.fr       */
+/*   Updated: 2023/10/09 16:26:29 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,19 @@
 #include <cstdlib>
 #include "../includes/data.hpp"
 
-
 class Db;
-
 class Input {
     public:
 
         Input();
         ~Input();
-        void putInMap();
+        Input(const Input &other);
+        Input& operator=(const Input &other);
         void openInput(char **av);
         void find(Db & db);
 
         
     private:
-
-        std::multimap<std::string, std::string> _minput;
+        char **_av;
         std::fstream _input;
 };

@@ -11,6 +11,8 @@
 class MyDeque {
     public:
         MyDeque();
+        MyDeque(const MyDeque& other);
+        MyDeque& operator=(const MyDeque& other);
         ~MyDeque();
     
         void putInDeque(int n);

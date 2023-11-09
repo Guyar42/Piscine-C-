@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:55:55 by guyar             #+#    #+#             */
-/*   Updated: 2023/10/03 17:49:29 by guyar            ###   ########.fr       */
+/*   Updated: 2023/10/09 15:00:13 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,14 @@ bool dateParse(std::string str) {
     std::string strings[3];
     int nb = ft_count(str, '-');
 
+
     // split;
     if (nb != 2 )
     {
         std::cout << "Error value = " << str << std::endl;
         return (0);
     } 
-    for (int i = 0; i <= str.size(); i++)
+    for (size_t i = 0; i <= str.size(); i++)
     {    
         if (str[i] == separator || i == str.size())
         {
@@ -92,7 +93,9 @@ bool dateParse(std::string str) {
             return(0);
         }
     else
+    {
         return(1);
+    }
 }
 
 bool valParse(std::string insecond, int code)

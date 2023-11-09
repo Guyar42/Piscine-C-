@@ -1,8 +1,22 @@
 #include "../includes/myVector.hpp"
 
-MyVector::MyVector () {}
+MyVector::MyVector () {
+}
 
-MyVector::~MyVector () {}
+MyVector::~MyVector () {
+
+}
+
+MyVector::MyVector(const MyVector& other) {
+    _data = other._data;
+}
+
+MyVector& MyVector::operator=(const MyVector& other) {
+    if (this != &other) {
+        _data = other._data;
+    }
+    return *this;
+}
 
 void MyVector::putInVector(int n)
 {
@@ -88,17 +102,15 @@ void MyVector::sort()
     clock_t start1 = clock();
     mergeInsertionSort(_data, START, _data.size() - 1, THRESHOLD);
     clock_t end1 = clock();
-    double time1 = static_cast<double>(end1 - start1) / CLOCKS_PER_SEC * 1000;
+    double time1 = (static_cast<double>(end1 - start1) / CLOCKS_PER_SEC);
     display();
     std::cout << "Time to process a range of " << _data.size() 
             << " elements with std::vector container: " 
-            << time1 << " us" << std::endl;
+            << time1 << "s" << std::endl;
 }
 
 void MyVector::display()
 {
-    unsigned i = 0;
-
     std::cout << "After: ";
     for (unsigned i = 0;  i < _data.size(); i++)
     {

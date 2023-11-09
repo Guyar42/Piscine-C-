@@ -9,6 +9,17 @@ void MyDeque::putInDeque(int n)
     _data.push_back(n);
 }
 
+MyDeque::MyDeque(const MyDeque& other) {
+    _data = other._data;
+}
+
+MyDeque& MyDeque::operator=(const MyDeque& other) {
+    if (this != &other) {
+        _data = other._data;
+    }
+    return *this;
+}
+
 void MyDeque::insertionSort(std::deque<int>& arr, int left, int right)
 {
     for (int i = left + 1; i <= right; ++i) {
@@ -85,21 +96,20 @@ void MyDeque::sort()
     clock_t start2= clock();
     mergeInsertionSort(_data, START, _data.size() - 1, THRESHOLD);
     clock_t end2 = clock();
-    double time2 = static_cast<double>(end2 - start2) / CLOCKS_PER_SEC * 1000;
+    double time2 = static_cast<double>(end2 - start2) / CLOCKS_PER_SEC;
     std::cout << "Time to process a range of " << _data.size() 
             << " elements with std::deque container: "
-            << time2 << " us" << std::endl;
+            << time2 << " s" << std::endl;
 }
 
 void MyDeque::display()
 {
-    unsigned i = 0;
     std::cout << "After: ";
     for (unsigned i = 0; i < _data.size(); i++)
     {
         std::cout << _data[i];
         if (_data[i+1])
-        std::cout << " ";
+            std::cout << " ";
     }
     std::cout << std::endl;
 }

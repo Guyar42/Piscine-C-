@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 11:14:11 by guyar             #+#    #+#             */
-/*   Updated: 2023/09/05 18:19:25 by guyar            ###   ########.fr       */
+/*   Updated: 2023/10/09 16:31:06 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "../includes/stack.hpp"
 #include "../includes/ft.hpp"
 
-//make canonical form
 int main (int ac, char **av)
 {
     try

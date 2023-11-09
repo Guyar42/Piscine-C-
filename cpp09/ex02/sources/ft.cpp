@@ -6,12 +6,14 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 14:15:17 by guyar             #+#    #+#             */
-/*   Updated: 2023/10/05 20:21:06 by guyar            ###   ########.fr       */
+/*   Updated: 2023/10/11 12:22:26 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft.hpp"
 #include "../includes/error.hpp"
+#include "../includes/myVector.hpp"
+#include "../includes/myDeque.hpp"
 
 int ft_count(std::string str, char c)
 {
@@ -44,39 +46,31 @@ void strIsDigit(std::string const & str)
 
 void strIsPositive(std::string const & str)
 {
-    if (std::stoi(str) < 0)
+    if (std::atoi(str.c_str()) < 0)
         throw argError();
 }
 
-// void checkError(char ** av)
-// {
-//     std::string str;
-//     str = av[1];
-
-//     char separator = ' '; 
-//     size_t endIndex;
-//     size_t startIndex;
-//     size_t j = 0;
-//     size_t i = 0;
-//     std::string strings[ft_count(str, ' ') + 1];
-
-//     for (i = 0;i <= str.size(); i++)
-//     {
-//         if (str[i] == separator || i == str.size())
-//         {
-//             endIndex = i;
-//             std::string temp;
-//             strings[j] = temp.append(str, startIndex, endIndex - startIndex);
-//             j++;
-//             startIndex = endIndex + 1;
-//         }
-//     }
-
-//     for (i = 0; i <= str.size(); i++)
-//     {
-//         if (strIsDigit(strings[i]))
-//         {
-//             throw argError();
-//         }
-//     }
-// }
+void PmergeMe(char **av)
+{
+    MyVector v;
+    MyDeque q;
+    std::string tmp; 
+    int i;
+    
+    i = 0;
+    std::cout << "Before ";
+    for(i = 1; av[i]; i++)
+    {
+        tmp = av[i];
+        strIsDigit(tmp);
+        strIsPositive(tmp);
+        std::cout << tmp;
+        if (av[i + 1])
+            std::cout << " ";
+        v.putInVector(std::atoi(tmp.c_str()));
+        q.putInDeque(std::atoi(tmp.c_str()));
+    }
+    std::cout << std::endl;
+    v.sort();
+    q.sort();
+}

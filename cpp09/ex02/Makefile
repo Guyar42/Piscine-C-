@@ -8,8 +8,8 @@ SRCS = 	./sources/main.cpp \
 
 HEADER = ./includes/ft.hpp \
 		./includes/error.hpp \
-		./includes/myDeque \
-		./includes/myVector
+		./includes/myDeque.hpp \
+		./includes/myVector.hpp
 
 
 OBJS = ${SRCS:.cpp=.o}

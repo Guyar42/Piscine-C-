@@ -8,7 +8,7 @@ SRCS = 	./sources/main.cpp 	\
 
 HEADER = 	./includes/data.hpp \
 			./includes/input.hpp \
-			./includse/ft.hpp
+			./includes/ft.hpp
 
 OBJS = ${SRCS:.cpp=.o}
 

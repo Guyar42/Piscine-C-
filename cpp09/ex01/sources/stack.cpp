@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 11:19:31 by guyar             #+#    #+#             */
-/*   Updated: 2023/09/05 18:08:05 by guyar            ###   ########.fr       */
+/*   Updated: 2023/10/09 16:16:08 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,20 @@ void Stack::setIn(char **av)
     _in = av[1];
 }
 
+Stack::Stack(const Stack &other) {
+    _nb = other._nb;
+    _opr = other._opr;
+    _in = other._in;
+}
+
+Stack& Stack::operator=(const Stack &other) {
+    if (this != &other) {
+        _nb = other._nb;
+        _opr = other._opr;
+        _in = other._in;
+    }
+    return *this;
+}
 void Stack::calc()
 {
     char separator = ' '; 

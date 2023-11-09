@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 11:19:18 by guyar             #+#    #+#             */
-/*   Updated: 2023/09/05 18:07:49 by guyar            ###   ########.fr       */
+/*   Updated: 2023/10/09 16:14:21 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ class Stack {
     public:
         Stack();
         ~Stack();
-
+        Stack(const Stack &other);
+        Stack& operator=(const Stack &other);
         void setIn(char **av);
         void calc();
 

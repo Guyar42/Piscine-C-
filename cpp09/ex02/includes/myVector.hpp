@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 18:06:30 by guyar             #+#    #+#             */
-/*   Updated: 2023/10/05 19:08:23 by guyar            ###   ########.fr       */
+/*   Updated: 2023/10/09 14:33:27 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 class MyVector {
     public:
         MyVector();
+        MyVector(const MyVector& other);
+        MyVector& operator=(const MyVector& other);
         ~MyVector();
     
         void putInVector(int n);

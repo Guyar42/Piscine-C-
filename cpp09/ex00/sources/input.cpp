@@ -6,7 +6,7 @@
 /*   By: guyar <guyar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 19:40:05 by guyar             #+#    #+#             */
-/*   Updated: 2023/10/03 17:48:56 by guyar            ###   ########.fr       */
+/*   Updated: 2023/10/09 16:26:27 by guyar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,26 @@ Input::~Input()
 
 void Input::openInput(char **av)
 {
-        _input.open(av[1]);
+    _av = av;
+    _input.open(_av[1]);
 }
 
+Input::Input(const Input &other): _av(other._av) {
+    
+}
 
-
+Input& Input::operator=(const Input &other) {
+    if (this != &other) {
+        _av = other._av;
+    }
+    return *this;
+}
 
 void Input::find(Db & db)
 {
     std::string infirst; // date
     std::string insecond; // quantity
     std::string tmp;
-    (void) db;
     std::map<std::string, std::string> dbtmp;
     std::map<std::string, std::string>::iterator itdb;
 
@@ -59,11 +67,16 @@ void Input::find(Db & db)
             && valParse(insecond, 1))
         {
             itdb = dbtmp.upper_bound(infirst);
-            itdb--;
-            float q = std::atof(insecond.c_str());
-            float v = std::atof(itdb->second.c_str());
-            std::cout << infirst << " => " << insecond << " = ";
-            std::cout << q * v << std::endl;
+            if (itdb != dbtmp.begin())
+            {
+                itdb--;
+                float q = std::atof(insecond.c_str());
+                float v = std::atof(itdb->second.c_str());
+                std::cout << infirst << " => " << insecond << " = ";
+                std::cout << q * v << std::endl;
+            }
+            else
+                std::cout << "Error value: " << infirst << std::endl;
         }
     }
 }
